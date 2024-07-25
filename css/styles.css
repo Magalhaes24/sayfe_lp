@@ -11092,7 +11092,7 @@ header.masthead .bg-circle-4 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #73AB84;
+  background: linear-gradient(0deg, #73AB84 0%, #79C7C5 100%);
   z-index: 9999;
   visibility: visible;
   transition: transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
