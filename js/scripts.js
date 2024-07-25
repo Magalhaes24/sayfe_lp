@@ -24,6 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
     elements.forEach(element => {
         observer.observe(element);
     });
+
+    // Loading screen logic
+    const loadingScreen = document.getElementById('loading-screen');
+    const loadingBar = document.querySelector('.loading-bar');
+    const body = document.body;
+
+    function hideLoadingScreen() {
+        loadingScreen.classList.add('slide-up');
+        body.style.overflow = 'auto';
+    }
+
+    window.addEventListener('load', () => {
+        loadingBar.addEventListener('animationend', hideLoadingScreen);
+    });
 });
 
 document.addEventListener('scroll', function() {
@@ -41,3 +55,4 @@ document.addEventListener('scroll', function() {
         circle.style.transform = `translateY(${translateY}px) rotate(${rotate}deg)`;
     });
 });
+
