@@ -10836,8 +10836,7 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
-html {
+}html {
   scroll-padding-top: 67px;
 }
 
@@ -10877,10 +10876,16 @@ header.masthead {
   background-position: center center;
   background-attachment: scroll;
   background-size: cover;
+  z-index: 1; /* Ensure content is above circles */
 }
 header.masthead .masthead-content {
-  z-index: 1;
+  z-index: 2;
   position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 header.masthead .masthead-content .masthead-heading {
   font-size: 4rem;
@@ -10942,4 +10947,97 @@ header.masthead .bg-circle-4 {
 .fade-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+.header_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem; /* Reduced gap */
+  z-index: 2; /* Ensure header content is above circles */
+}
+
+.header_content > div {
+  flex: 1; /* Ensure both divs have equal width */
+}
+
+.masthead-content .logo {
+  width: 20vw; /* Adaptive width */
+  max-width: 200px; /* Maximum width */
+  min-width: 100px; /* Minimum width */
+}
+
+.form-container {
+  z-index: 2; /* Ensure form container is above circles */
+}
+
+.form-container h2 {
+  margin-bottom: 2rem; /* Increased spacing between "Sign-Up" and form */
+}
+
+.form-container form {
+  max-width: 400px; /* Adjust form width */
+  margin: 0 auto;
+}
+
+.form-container .form-group {
+  margin-bottom: 1.5rem; /* Increased spacing between form groups */
+}
+
+.form-container .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+.form-container .form-control:focus {
+  border-color: #73AB84;
+  box-shadow: 0 0 0 0.2rem rgba(115, 171, 132, 0.25);
+}
+
+.form-container .form-control::placeholder {
+  color: #888;
+}
+
+.form-container .form-control[required] {
+  border-left: 3px solid #FF6961;
+}
+
+.form-container .form-control#comments {
+  resize: vertical; /* Allow vertical resizing for comments */
+}
+
+.form-container button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #307371;
+  border: none;
+  color: #fff;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #79C7C5;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .header_content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .masthead-content {
+    margin-bottom: 2rem;
+  }
+
+  .form-container form {
+    max-width: 100%; /* Full width for mobile view */
+    padding: 0 1rem;
+  }
 }
